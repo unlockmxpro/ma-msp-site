@@ -32,7 +32,7 @@
   const style = document.createElement('style');
   style.textContent = `
     #umx-chat-btn {
-      position: fixed; bottom: 24px; right: 24px; z-index: 9998;
+      position: fixed; bottom: 90px; right: 24px; z-index: 9998;
       width: 56px; height: 56px; border-radius: 50%;
       background: linear-gradient(135deg, #2563eb, #38bdf8);
       box-shadow: 0 4px 20px rgba(37,99,235,.45);
@@ -49,7 +49,7 @@
       font-family: Inter, sans-serif;
     }
     #umx-chat-window {
-      position: fixed; bottom: 90px; right: 24px; z-index: 9999;
+      position: fixed; bottom: 156px; right: 24px; z-index: 9999;
       width: 360px; max-width: calc(100vw - 32px);
       background: #fff; border-radius: 20px;
       box-shadow: 0 8px 40px rgba(0,0,0,.18);
