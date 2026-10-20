@@ -1,538 +1,246 @@
-/* ===== BASE ===== */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-:root {
-  --primary: #2563eb;
-  --primary-dark: #1d4ed8;
-  --secondary: #0f172a;
-  --accent: #38bdf8;
-  --text: #1e293b;
-  --text-light: #64748b;
-  --bg: #f8fafc;
-  --white: #ffffff;
-  --card-bg: #ffffff;
-  --border: #e2e8f0;
-  --gradient: linear-gradient(135deg, #2563eb, #38bdf8);
-}
-
-html { scroll-behavior: smooth; }
-
-body {
-  font-family: 'Inter', sans-serif;
-  color: var(--text);
-  background: var(--bg);
-  line-height: 1.6;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 24px;
-}
-
-.gradient-text {
-  background: var(--gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* ===== NAVBAR ===== */
-.navbar {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 1000;
-  background: rgba(15, 23, 42, 0.95);
-  backdrop-filter: blur(10px);
-  padding: 16px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-}
-
-.navbar .container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.logo { display: flex; align-items: baseline; gap: 4px; }
-.logo-ma { font-size: 1.6rem; font-weight: 800; color: var(--accent); }
-.logo-msp { font-size: 1.6rem; font-weight: 800; color: var(--white); }
-.logo-sub { font-size: 0.75rem; color: var(--text-light); margin-left: 6px; }
-
-.nav-links {
-  display: flex;
-  list-style: none;
-  gap: 32px;
-  align-items: center;
-}
-
-.nav-links a {
-  color: #cbd5e1;
-  text-decoration: none;
-  font-size: 0.9rem;
-  font-weight: 500;
-  transition: color 0.2s;
-}
-
-.nav-links a:hover { color: var(--white); }
-
-.btn-nav {
-  background: var(--primary) !important;
-  color: var(--white) !important;
-  padding: 8px 20px;
-  border-radius: 8px;
-  transition: background 0.2s !important;
-}
-
-.btn-nav:hover { background: var(--primary-dark) !important; }
-
-/* ===== HERO ===== */
-.hero {
-  min-height: 100vh;
-  background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0f172a 100%);
-  display: flex;
-  align-items: center;
-  padding: 120px 0 80px;
-  position: relative;
-  overflow: hidden;
-}
-
-.hero::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  right: -20%;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(37,99,235,0.15) 0%, transparent 70%);
-  pointer-events: none;
-}
-
-.hero-content { max-width: 700px; }
-
-.hero-badge {
-  display: inline-block;
-  background: rgba(37,99,235,0.2);
-  border: 1px solid rgba(37,99,235,0.4);
-  color: var(--accent);
-  padding: 8px 16px;
-  border-radius: 50px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  margin-bottom: 24px;
-}
-
-.hero h1 {
-  font-size: clamp(2.4rem, 5vw, 3.8rem);
-  font-weight: 800;
-  color: var(--white);
-  line-height: 1.15;
-  margin-bottom: 20px;
-}
-
-.hero p {
-  font-size: 1.15rem;
-  color: #94a3b8;
-  margin-bottom: 36px;
-  max-width: 580px;
-}
-
-.hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 56px; }
-
-.btn-primary {
-  display: inline-block;
-  background: var(--gradient);
-  color: var(--white);
-  padding: 14px 32px;
-  border-radius: 10px;
-  font-weight: 600;
-  font-size: 1rem;
-  text-decoration: none;
-  border: none;
-  cursor: pointer;
-  transition: opacity 0.2s, transform 0.2s;
-}
-
-.btn-primary:hover { opacity: 0.9; transform: translateY(-1px); }
-
-.btn-secondary {
-  display: inline-block;
-  background: transparent;
-  color: var(--white);
-  padding: 14px 32px;
-  border-radius: 10px;
-  font-weight: 600;
-  font-size: 1rem;
-  text-decoration: none;
-  border: 1px solid rgba(255,255,255,0.3);
-  transition: border-color 0.2s, background 0.2s;
-}
-
-.btn-secondary:hover { border-color: var(--white); background: rgba(255,255,255,0.05); }
-
-.btn-outline {
-  display: inline-block;
-  background: transparent;
-  color: var(--primary);
-  padding: 12px 28px;
-  border-radius: 10px;
-  font-weight: 600;
-  text-decoration: none;
-  border: 2px solid var(--primary);
-  transition: background 0.2s, color 0.2s;
-  text-align: center;
-}
-
-.btn-outline:hover { background: var(--primary); color: var(--white); }
-
-.hero-stats {
-  display: flex;
-  gap: 40px;
-  flex-wrap: wrap;
-}
-
-.stat span {
-  display: block;
-  font-size: 1.8rem;
-  font-weight: 800;
-  color: var(--accent);
-}
-
-.stat p {
-  font-size: 0.8rem;
-  color: #64748b;
-  margin: 0;
-}
-
-/* ===== SECTION HEADER ===== */
-.section-header {
-  text-align: center;
-  margin-bottom: 56px;
-}
-
-.section-header h2 {
-  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-  font-weight: 800;
-  color: var(--text);
-  margin-bottom: 12px;
-}
-
-.section-header p {
-  color: var(--text-light);
-  font-size: 1.05rem;
-}
-
-/* ===== SERVICES ===== */
-.services { padding: 100px 0; background: var(--white); }
-
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 24px;
-}
-
-.service-card {
-  background: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 36px 28px;
-  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
-}
-
-.service-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(37,99,235,0.1);
-  border-color: var(--primary);
-}
-
-.service-icon {
-  width: 56px;
-  height: 56px;
-  background: var(--gradient);
-  border-radius: 14px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
-}
-
-.service-icon i { font-size: 1.4rem; color: var(--white); }
-
-.service-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 10px; }
-.service-card p { color: var(--text-light); font-size: 0.95rem; }
-
-/* ===== THREATDOWN ===== */
-.threatdown {
-  padding: 100px 0;
-  background: linear-gradient(135deg, #0f172a, #1e3a5f);
-}
-
-.threatdown-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 64px;
-  align-items: center;
-}
-
-.partner-badge {
-  display: inline-block;
-  background: rgba(56,189,248,0.15);
-  border: 1px solid rgba(56,189,248,0.3);
-  color: var(--accent);
-  padding: 6px 14px;
-  border-radius: 50px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  margin-bottom: 20px;
-}
-
-.threatdown-text h2 {
-  font-size: 2.2rem;
-  font-weight: 800;
-  color: var(--white);
-  margin-bottom: 16px;
-}
-
-.threatdown-text p { color: #94a3b8; margin-bottom: 24px; }
-
-.threatdown-features { list-style: none; margin-bottom: 32px; }
-.threatdown-features li {
-  color: #cbd5e1;
-  padding: 8px 0;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 0.95rem;
-}
-
-.threatdown-features i { color: var(--accent); }
-
-.shield-graphic {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 240px;
-  height: 240px;
-  background: rgba(37,99,235,0.15);
-  border: 2px solid rgba(37,99,235,0.3);
-  border-radius: 50%;
-  margin: 0 auto;
-}
-
-.shield-graphic i { font-size: 5rem; color: var(--accent); margin-bottom: 12px; }
-.shield-graphic span { font-size: 0.85rem; font-weight: 700; color: var(--accent); letter-spacing: 3px; }
-
-/* ===== COMPLIANCE ===== */
-.compliance { padding: 100px 0; background: var(--bg); }
-
-.compliance-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 24px;
-}
-
-.compliance-card {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 36px 28px;
-  text-align: center;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.compliance-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(0,0,0,0.08);
-}
-
-.compliance-card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 16px; display: block; }
-.compliance-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 10px; }
-.compliance-card p { color: var(--text-light); font-size: 0.92rem; }
-
-/* ===== PRICING ===== */
-.pricing { padding: 100px 0; background: var(--white); }
-
-.pricing-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
-  align-items: start;
-}
-
-.pricing-card {
-  background: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  padding: 36px 28px;
-  position: relative;
-}
-
-.pricing-card.featured {
-  background: var(--secondary);
-  border-color: var(--primary);
-  transform: scale(1.03);
-}
-
-.popular-badge {
-  position: absolute;
-  top: -14px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--gradient);
-  color: var(--white);
-  padding: 4px 18px;
-  border-radius: 50px;
-  font-size: 0.78rem;
-  font-weight: 700;
-  white-space: nowrap;
-}
-
-.pricing-header { margin-bottom: 24px; }
-.pricing-header h3 {
-  font-size: 1.2rem;
-  font-weight: 700;
-  margin-bottom: 8px;
-  color: var(--text);
-}
-
-.pricing-card.featured .pricing-header h3 { color: var(--white); }
-
-.price span {
-  font-size: 2.4rem;
-  font-weight: 800;
-  color: var(--primary);
-}
-
-.pricing-card.featured .price span { color: var(--accent); }
-.price { color: var(--text-light); font-size: 0.9rem; }
-.pricing-card.featured .price { color: #94a3b8; }
-
-.pricing-card ul { list-style: none; margin-bottom: 28px; }
-.pricing-card li {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 8px 0;
-  font-size: 0.92rem;
-  color: var(--text);
-  border-bottom: 1px solid var(--border);
-}
-
-.pricing-card.featured li { color: #cbd5e1; border-bottom-color: rgba(255,255,255,0.08); }
-.pricing-card li i { color: var(--primary); font-size: 0.8rem; }
-.pricing-card.featured li i { color: var(--accent); }
-
-.pricing-card .btn-primary,
-.pricing-card .btn-outline { width: 100%; display: block; text-align: center; }
-
-/* ===== CONTACT ===== */
-.contact { padding: 100px 0; background: var(--bg); }
-
-.contact-grid {
-  display: grid;
-  grid-template-columns: 1fr 1.5fr;
-  gap: 64px;
-  align-items: start;
-}
-
-.contact-info h3 { font-size: 1.5rem; font-weight: 700; margin-bottom: 12px; }
-.contact-info p { color: var(--text-light); margin-bottom: 32px; }
-
-.contact-items { display: flex; flex-direction: column; gap: 20px; }
-
-.contact-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.contact-item i {
-  width: 40px;
-  height: 40px;
-  background: var(--gradient);
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--white);
-  font-size: 0.9rem;
-  flex-shrink: 0;
-}
-
-.contact-item a, .contact-item span {
-  color: var(--text);
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.contact-item a:hover { color: var(--primary); }
-
-.contact-form { display: flex; flex-direction: column; gap: 16px; }
-
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-
-.contact-form input,
-.contact-form select,
-.contact-form textarea {
-  width: 100%;
-  padding: 14px 16px;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  font-size: 0.95rem;
-  font-family: 'Inter', sans-serif;
-  background: var(--white);
-  color: var(--text);
-  transition: border-color 0.2s;
-  outline: none;
-}
-
-.contact-form input:focus,
-.contact-form select:focus,
-.contact-form textarea:focus { border-color: var(--primary); }
-
-.contact-form textarea { resize: vertical; }
-
-/* ===== FOOTER ===== */
-.footer { background: var(--secondary); padding: 64px 0 32px; color: #94a3b8; }
-
-.footer-grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 40px;
-  margin-bottom: 48px;
-}
-
-.footer-brand p { margin-top: 16px; font-size: 0.9rem; line-height: 1.7; }
-
-.footer-links h4 { color: var(--white); font-size: 0.9rem; font-weight: 700; margin-bottom: 16px; }
-.footer-links ul { list-style: none; }
-.footer-links li { margin-bottom: 10px; }
-.footer-links a { color: #64748b; text-decoration: none; font-size: 0.88rem; transition: color 0.2s; }
-.footer-links a:hover { color: var(--white); }
-
-.footer-bottom {
-  border-top: 1px solid rgba(255,255,255,0.08);
-  padding-top: 24px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 8px;
-  font-size: 0.82rem;
-  color: #475569;
-}
-
-/* ===== RESPONSIVE ===== */
-@media (max-width: 768px) {
-  .nav-links { display: none; }
-  .hero { padding: 100px 0 60px; }
-  .hero-stats { gap: 24px; }
-  .threatdown-content { grid-template-columns: 1fr; }
-  .threatdown-image { display: none; }
-  .contact-grid { grid-template-columns: 1fr; }
-  .form-row { grid-template-columns: 1fr; }
-  .footer-grid { grid-template-columns: 1fr 1fr; }
-  .footer-bottom { flex-direction: column; text-align: center; }
-  .pricing-card.featured { transform: none; }
-}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MA MSP — Marcus Aurelius MSP IT Services. Ciberseguridad avanzada, desbloqueos y soporte IT. Powered by UnlockMxPro. Orlando FL y México.">
+  <title>MA MSP — Marcus Aurelius MSP IT Services</title>
+  <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+  <link rel="manifest" href="img/site.webmanifest">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="container">
+    <a class="logo" href="index.html">MA<span>MSP</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Inicio</a></li>
+      <li><a href="ciberseguridad.html">Ciberseguridad</a></li>
+      <li><a href="desbloqueos.html">Desbloqueos</a></li>
+      <li><a href="planes.html">Planes</a></li>
+      <li><a href="contacto.html" class="btn-nav">Cotización</a></li>
+    </ul>
+    <div class="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge">Marcus Aurelius MSP IT Services</div>
+      <h1>MA <span class="gradient-text">MSP</span></h1>
+      <p>Ciberseguridad avanzada, desbloqueos y soporte IT para tu negocio y hogar. Orlando FL y México. Powered by UnlockMxPro.</p>
+      <div class="hero-buttons">
+        <a href="contacto.html" class="btn-primary">Cotización Gratuita</a>
+        <a href="#servicios" class="btn-secondary">Ver Servicios</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><span>24/7</span><p>Soporte</p></div>
+        <div class="stat"><span>100%</span><p>Protegido</p></div>
+        <div class="stat"><span>+500</span><p>Clientes</p></div>
+        <div class="stat"><span>$0</span><p>Costo Auditoría</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section id="servicios" class="services">
+  <div class="container">
+    <div class="section-header">
+      <h2>Nuestros <span class="gradient-text">Servicios</span></h2>
+      <p>Soluciones completas de seguridad y tecnología móvil</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-shield-alt"></i></div>
+        <h3>Ciberseguridad Avanzada</h3>
+        <p>Antivirus de última generación, protección contra ransomware, exploits y amenazas web en tiempo real con ThreatDown.</p>
+        <a href="ciberseguridad.html">Ver detalles →</a>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-mobile-alt"></i></div>
+        <h3>Desbloqueos y Reparaciones</h3>
+        <p>Liberación de SIM, eSIM, IMEI, bypass FRP, cambio de pantalla, batería y piezas originales. Rápido y confiable.</p>
+        <a href="desbloqueos.html">Solicitar →</a>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-eye"></i></div>
+        <h3>Monitoreo Continuo</h3>
+        <p>Escaneos automáticos 24/7, detección proactiva de amenazas y alertas en tiempo real para tus dispositivos.</p>
+        <a href="planes.html">Ver planes →</a>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-network-wired"></i></div>
+        <h3>Protección de Red</h3>
+        <p>Filtrado DNS, protección web y seguridad perimetral para tu hogar o negocio contra intrusiones externas.</p>
+        <a href="contacto.html">Consultar →</a>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-cloud-upload-alt"></i></div>
+        <h3>Backup y Recuperación</h3>
+        <p>Copias de seguridad automáticas y planes de recuperación ante ransomware o pérdida de datos críticos.</p>
+        <a href="planes.html">Ver planes →</a>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-headset"></i></div>
+        <h3>Soporte Prioritario</h3>
+        <p>Atención personalizada vía WhatsApp, email o llamada. Respuesta rápida ante incidentes de seguridad.</p>
+        <a href="contacto.html">Contactar →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THREATDOWN -->
+<section class="dark-section">
+  <div class="container">
+    <div class="two-col">
+      <div class="two-col-text">
+        <div class="hero-badge" style="margin-bottom:20px;">Partner Autorizado</div>
+        <h2 style="color:var(--white); font-size:2rem; font-weight:800; margin-bottom:16px;">ThreatDown<br><span class="gradient-text">by Malwarebytes</span></h2>
+        <p style="color:#94a3b8; margin-bottom:24px;">Somos partner autorizado de ThreatDown, la plataforma de seguridad endpoint empresarial impulsada por Malwarebytes. Protección real para negocios y hogares a precios accesibles.</p>
+        <ul class="feature-list">
+          <li><i class="fas fa-check"></i> Antivirus y anti-ransomware de próxima generación</li>
+          <li><i class="fas fa-check"></i> Filtrado DNS y protección web</li>
+          <li><i class="fas fa-check"></i> EDR con análisis de comportamiento</li>
+          <li><i class="fas fa-check"></i> Rollback de ransomware (7 días)</li>
+          <li><i class="fas fa-check"></i> Gestión centralizada en la nube</li>
+        </ul>
+        <a href="planes.html" class="btn-primary">Ver Planes ThreatDown</a>
+      </div>
+      <div style="display:flex; justify-content:center; align-items:center;">
+        <div style="width:240px; height:240px; border-radius:50%; background:rgba(37,99,235,0.15); border:2px solid rgba(56,189,248,0.3); display:flex; flex-direction:column; align-items:center; justify-content:center;">
+          <i class="fas fa-shield-alt" style="font-size:5rem; color:var(--accent); margin-bottom:12px;"></i>
+          <span style="font-size:0.85rem; font-weight:700; color:var(--accent); letter-spacing:3px;">PROTEGIDO</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLANES RESUMEN -->
+<section class="pricing">
+  <div class="container">
+    <div class="section-header">
+      <h2>Planes <span class="gradient-text">de Protección</span></h2>
+      <p>Tres niveles de seguridad profesional. Sin costos ocultos.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <div class="pricing-header">
+          <h3>Essential</h3>
+          <div class="price"><span>$71.99</span>/endpoint/mes</div>
+        </div>
+        <ul>
+          <li><i class="fas fa-check"></i> Next-Gen AV + Anti-ransomware</li>
+          <li><i class="fas fa-check"></i> Protección web en tiempo real</li>
+          <li><i class="fas fa-check"></i> Bloqueo de exploits</li>
+          <li><i class="fas fa-check"></i> Remediación end-to-end</li>
+        </ul>
+        <a href="contacto.html" class="btn-outline">Elegir Essential</a>
+      </div>
+      <div class="pricing-card featured">
+        <div class="popular-badge">Recomendado</div>
+        <div class="pricing-header">
+          <h3>Advanced</h3>
+          <div class="price"><span>$91.99</span>/endpoint/mes</div>
+        </div>
+        <ul>
+          <li><i class="fas fa-check"></i> Todo de Essential</li>
+          <li><i class="fas fa-check"></i> EDR con IA y comportamiento</li>
+          <li><i class="fas fa-check"></i> Rollback de ransomware 7 días</li>
+          <li><i class="fas fa-check"></i> Aislamiento de dispositivo</li>
+        </ul>
+        <a href="contacto.html" class="btn-primary">Elegir Advanced</a>
+      </div>
+      <div class="pricing-card">
+        <div class="pricing-header">
+          <h3>24/7 MDR</h3>
+          <div class="price"><span>$119.99</span>/endpoint/mes</div>
+        </div>
+        <ul>
+          <li><i class="fas fa-check"></i> Todo de Advanced</li>
+          <li><i class="fas fa-check"></i> SOC humano 24/7/365</li>
+          <li><i class="fas fa-check"></i> Threat hunting proactivo</li>
+          <li><i class="fas fa-check"></i> Respuesta activa de expertos</li>
+        </ul>
+        <a href="contacto.html" class="btn-outline">Elegir MDR</a>
+      </div>
+    </div>
+    <p class="pricing-note">Precios por endpoint/mes. <a href="planes.html" style="color:var(--primary);">Ver todos los detalles →</a></p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-band">
+  <div class="container">
+    <h2>¿Listo para proteger tus dispositivos?</h2>
+    <p>Auditoría gratuita sin compromiso. Te contactamos en menos de 24 horas.</p>
+    <a href="contacto.html" class="btn-white">Contáctanos Ahora</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="logo" href="index.html">MA<span>MSP</span></a>
+        <p>Marcus Aurelius MSP IT Services. Ciberseguridad avanzada y soluciones móviles en Orlando FL y México.</p>
+        <p class="powered-by">Powered by <strong>UnlockMxPro</strong></p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/people/Unlock-Mx-Pro-Soluciones-Sim/100063644769403/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://wa.me/+524661470586" target="_blank"><i class="fab fa-whatsapp"></i></a>
+          <a href="mailto:unlockmxpro@gmail.com"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <h4>Servicios</h4>
+        <ul>
+          <li><a href="ciberseguridad.html">Ciberseguridad</a></li>
+          <li><a href="desbloqueos.html">Desbloqueos</a></li>
+          <li><a href="desbloqueos.html">Reparaciones</a></li>
+          <li><a href="planes.html">Planes Mensuales</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Empresa</h4>
+        <ul>
+          <li><a href="nosotros">Nosotros</a></li>
+          <li><a href="planes.html">Precios</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+          <li><a href="ciberseguridad.html">ThreatDown Partner</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="mailto:unlockmxpro@gmail.com">unlockmxpro@gmail.com</a></li>
+          <li><a href="https://wa.me/+524661470586">+52 466 147 0586</a></li>
+          <li><a href="#">Orlando, FL</a></li>
+          <li><a href="#">Salvatierra, Gto. MX</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 MA MSP — Marcus Aurelius MSP IT Services. Todos los derechos reservados.</p>
+      <p><a href="privacy.html" style="color:inherit;">Privacy Policy</a> · Powered by UnlockMxPro · ThreatDown es marca registrada de Malwarebytes Inc.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp flotante -->
+<a href="https://wa.me/+524661470586?text=Hola%20MA%20MSP,%20quiero%20una%20cotización%20gratuita" class="wa-float" target="_blank">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<script src="js/chat-widget.js" defer></script>
+</body>
+</html>
