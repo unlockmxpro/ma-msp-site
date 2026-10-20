@@ -15,11 +15,11 @@
       telegram: 'Chat on Telegram',
     },
     unlock: {
-      title: 'Soporte UnlockMxPro',
+      title: 'Soporte MA MSP',
       subtitle: 'Responde al instante',
       placeholder: 'Escríbenos lo que necesitas...',
       send: 'Enviar',
-      welcome: '¡Hola! Soy el asistente virtual de UnlockMxPro. ¿En qué te ayudo hoy?',
+      welcome: '¡Hola! Soy el asistente virtual de MA MSP. ¿En qué te ayudo hoy?',
       telegram: 'Chatear en Telegram',
     },
   };
@@ -122,7 +122,7 @@
 
   const tgHref = SITE === 'msp'
     ? 'https://t.me/mamspnow'
-    : 'https://wa.me/+524661470586?text=Hola%20UnlockMxPro';
+    : 'https://wa.me/+524661470586?text=Hola%20MA%20MSP';
 
   const btn = document.createElement('button');
   btn.id = 'umx-chat-btn';
